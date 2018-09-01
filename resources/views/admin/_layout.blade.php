@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{asset('storage/admin/dist/css/AdminLTE.min.css')}}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="{{asset('storage/admin/dist/css/skins/_all-skins.min.css')}}">
+    <link rel="stylesheet" href="{{asset('storage/admin/dist/css/skins/_all-skins.min.css')}}"> {{--
     <!-- Morris chart -->
     <link rel="stylesheet" href="{{asset('storage/admin/bower_components/morris.js/morris.css')}}">
     <!-- jvectormap -->
@@ -28,7 +28,7 @@
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{asset('storage/admin/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
     <!-- bootstrap wysihtml5 - text editor -->
-    <link rel="stylesheet" href="{{asset('storage/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}"> @stack('styles')
+    <link rel="stylesheet" href="{{asset('storage/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}"> --}} @stack('styles')
     <!-- toastr -->
     <link rel="stylesheet" href="{{asset('storage/admin/plugins/toastr-master/build/toastr.min.css')}}">
 
@@ -280,6 +280,8 @@
     <script src="{{asset('storage/admin/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('storage/admin/plugins/toastr-master/build/toastr.min.js')}}"></script>
     <script src="{{asset('storage/admin/plugins/bootbox.min.js')}}"></script>
+    <!-- CK Editor -->
+    <script src="{{asset('storage/admin/bower_components/ckeditor/ckeditor.js')}}"></script>
     {{--
     <!-- Morris.js charts -->
     <script src="{{asset('storage/admin/bower_components/raphael/raphael.min.js')}}"></script>

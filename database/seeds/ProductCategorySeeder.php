@@ -13,9 +13,10 @@ class ProductCategorySeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        for($i = 0; $i < 10; $i++){
-            DB::table('product_category')->insert([
-                'name' => $faker->name
+        for($i = 0; $i < 9; $i++){
+            DB::table('product')->insert([
+                'name' => $faker->name,
+                'category_id' => $i + 1
             ]);
         }
     }

@@ -1,11 +1,11 @@
 @extends('admin._layout') 
 @section('content-header')
 <h1>
-    Quản lý danh mục sản phẩm
+    Quản lý sản phẩm
 </h1>
 <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-    <li class="active">Quản lý danh mục sản phẩm</li>
+    <li class="active">Quản lý sản phẩm</li>
 </ol>
 @endsection
  
@@ -14,35 +14,35 @@
     <div class="col-lg-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Danh sách danh mục</h3>
+                <h3 class="box-title">Danh sách sản phẩm</h3>
             </div>
             <div class="box-body">
                 <div class="form-group">
-                    <a href="{{route('product-category.create')}}" class="btn btn-primary">Thêm danh mục</a>
+                    <a href="{{route('product.create')}}" class="btn btn-primary">Thêm danh mục</a>
                 </div>
-                <table id="tbl-categories" class="table">
+                <table id="tbl-products" class="table">
                     <thead>
                         <tr>
                             <th style="width: 60px">Ảnh bìa</th>
-                            <th>Tên danh mục</th>
-                            <th>Danh mục cha</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Danh mục</th>
                             <th>Kích hoạt</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($categories as $item)
+                        @foreach ($products as $item)
                         <tr>
                             <td><img style="max-width: 100%;" src="{{asset($item->cover_image)}}" alt=""></td>
                             <td>{{$item->name}}</td>
-                            <td>{{!empty($item->parent)?$item->parent->name:''}}</td>
+                            <td>{{!empty($item->category)?$item->category->name:''}}</td>
                             <td>
                                 @if ($item->is_active)
                                 <span class="label label-success">Đang kích hoạt</span> @else
                                 <span class="label label-danger">Đang khóa</span> @endif
                             </td>
                             <td>
-                                <a href="{{route('product-category.edit', ['id'=>$item->id])}}" class="btn btn-info"><i class="fa fa-edit"></i> Sửa</a>
+                                <a href="{{route('product.edit', ['id'=>$item->id])}}" class="btn btn-info"><i class="fa fa-edit"></i> Sửa</a>
                                 <button class="btn btn-danger js-delete" data-id="{{$item->id}}"><i class="fa fa-trash"></i> Xóa</button>
                             </td>
                         </tr>
@@ -62,7 +62,7 @@
 <script src="{{asset('storage/admin/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('storage/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <script>
-    $('#tbl-categories').DataTable({});
+    $('#tbl-products').DataTable({});
     $(document).on('click','.js-delete', function(){
         var button = $(this);
 
@@ -77,10 +77,11 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url: '/admin/product-category/delete/' + button.attr('data-id'),
+                    url: '/admin/product/delete/' + button.attr('data-id'),
                     type: 'post',
                     success: function(res){
-                        toastr.success('Xóa thành công danh mục');
+                        if(res.status == 200)
+                        toastr.success('Xóa thành công sản phẩm');
                     },
                     error: function(err){
                         toastr.error('Có lỗi xảy ra, vui lòng thử lại sau');
@@ -91,5 +92,16 @@
     });
 
 </script>
+
+
+
+
+
+
+
+
+
+
+
 
 @endpush

@@ -34,7 +34,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{route('product-category.index')}}"><i class="fa fa-list-ol"></i> Quản lý danh mục</a></li>
-                    <li><a href=""><i class="fa fa-list-ol"></i> Quản lý sản phẩm</a></li>
+                    <li><a href="{{route('product.index')}}"><i class="fa fa-list-ol"></i> Quản lý sản phẩm</a></li>
                 </ul>
             </li>
             <li>
