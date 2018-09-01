@@ -64,6 +64,20 @@
         Route::get('/news', 'NewsController@index')->name('news.index');
         //content
         Route::get('/news/content/{id}', 'NewsController@content')->name('news.content');
+
+         //recruitment
+        //delete
+        Route::post('/recruitment/delete/{id}', 'RecruitmentController@delete')->name('recruitment.delete');
+        //create
+        Route::post('/recruitment/insert', 'RecruitmentController@insert')->name('recruitment.insert');
+        Route::get('/recruitment/create', 'RecruitmentController@create')->name('recruitment.create');
+        //update
+        Route::post('/recruitment/update', 'RecruitmentController@update')->name('recruitment.update');
+        Route::get('/recruitment/edit/{id}', 'RecruitmentController@edit')->name('recruitment.edit');
+        //list
+        Route::get('/recruitment', 'RecruitmentController@index')->name('recruitment.index');
+        //detail
+        Route::get('/recruitment/detail/{id}', 'RecruitmentController@detail')->name('recruitment.detail');
     });
 // });
 

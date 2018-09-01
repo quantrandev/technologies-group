@@ -56,7 +56,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{route('recruitment.index')}}">
                     <i class="fa fa-suitcase"></i>
                     <span>Tuyển dụng</span>
                     <span class="pull-right-container">
