@@ -50,6 +50,20 @@
         Route::get('/customer/edit/{id}', 'CustomerController@edit')->name('customer.edit');
         //list
         Route::get('/customer', 'CustomerController@index')->name('customer.index');
+
+         //news
+        //delete
+        Route::post('/news/delete/{id}', 'NewsController@delete')->name('news.delete');
+        //create
+        Route::post('/news/insert', 'NewsController@insert')->name('news.insert');
+        Route::get('/news/create', 'NewsController@create')->name('news.create');
+        //update
+        Route::post('/news/update', 'NewsController@update')->name('news.update');
+        Route::get('/news/edit/{id}', 'NewsController@edit')->name('news.edit');
+        //list
+        Route::get('/news', 'NewsController@index')->name('news.index');
+        //content
+        Route::get('/news/content/{id}', 'NewsController@content')->name('news.content');
     });
 // });
 
