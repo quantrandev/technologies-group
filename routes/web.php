@@ -78,6 +78,20 @@
         Route::get('/recruitment', 'RecruitmentController@index')->name('recruitment.index');
         //detail
         Route::get('/recruitment/detail/{id}', 'RecruitmentController@detail')->name('recruitment.detail');
+
+        //subsidiary
+        //delete
+        Route::post('/subsidiary/delete/{id}', 'SubsidiaryController@delete')->name('subsidiary.delete');
+        //create
+        Route::post('/subsidiary/insert', 'SubsidiaryController@insert')->name('subsidiary.insert');
+        Route::get('/subsidiary/create', 'SubsidiaryController@create')->name('subsidiary.create');
+        //update
+        Route::post('/subsidiary/update', 'SubsidiaryController@update')->name('subsidiary.update');
+        Route::get('/subsidiary/edit/{id}', 'SubsidiaryController@edit')->name('subsidiary.edit');
+        //list
+        Route::get('/subsidiary', 'SubsidiaryController@index')->name('subsidiary.index');
+        //description
+        Route::get('/subsidiary/description/{id}', 'SubsidiaryController@description')->name('subsidiary.detail');
     });
 // });
 

@@ -65,7 +65,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{route('subsidiary.index')}}">
                     <i class="fa fa-building-o"></i>
                     <span>Công ty thành viên</span>
                     <span class="pull-right-container">
