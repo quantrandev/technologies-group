@@ -38,7 +38,7 @@
                 </ul>
             </li>
             <li>
-                <a href="#">
+                <a href="{{route('customer.index')}}">
                     <i class="fa fa-user-plus"></i>
                     <span>Đối tác</span>
                     <span class="pull-right-container">

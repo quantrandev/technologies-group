@@ -1,11 +1,11 @@
 @extends('admin._layout') 
 @section('content-header')
 <h1>
-    Quản lý sản phẩm
+    Quản lý đối tác
 </h1>
 <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-    <li class="active">Thêm sản phẩm</li>
+    <li class="active">Thêm đối tác</li>
 </ol>
 @endsection
  
@@ -14,29 +14,19 @@
     <div class="col-lg-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Thông tin sản phẩm</h3>
+                <h3 class="box-title">Thông tin đối tác</h3>
             </div>
-            <form role="form" action="{{route('product.insert')}}" method="post" enctype="multipart/form-data">
+            <form role="form" action="{{route('customer.insert')}}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="box-body">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Tên sản phẩm</label>
-                        <input type="text" class="form-control" name="name" placeholder="Nhập tên sản phẩm">
+                        <label for="exampleInputEmail1">Tên đối tác</label>
+                        <input type="text" class="form-control" name="name" placeholder="Nhập tên đối tác">
                     </div>
                     <div class="form-group">
-                            <label for="exampleInputEmail1">Mô tả</label>
-                            <textarea id="editor1" name="description" rows="10" cols="80">
-                            </textarea>
+                            <label for="exampleInputEmail1">Trang chủ</label>
+                            <input type="text" class="form-control" name="homepage" placeholder="Nhập trang web của đối tác">
                         </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Danh mục</label>
-                        <select name="parent_id" class="form-control">
-                        <option value>Chọn danh mục</option>
-                            @foreach ($categories as $category)
-                                <option value="{{$category->id}}">{{$category->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
                     <div class="form-group">
                         <label>
                             <input type="radio" name="is_active" class="flat-red" value="1" checked="checked"> Kích hoạt
@@ -46,8 +36,8 @@
                                 </label>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputFile">Ảnh bìa</label>
-                        <input type="file" name="cover_image">
+                        <label for="exampleInputFile">Logo</label>
+                        <input type="file" name="logo">
                     </div>
                 </div>
                 <!-- /.box-body -->
@@ -73,8 +63,6 @@
             checkboxClass: 'icheckbox_flat-green',
             radioClass   : 'iradio_flat-green'
         });
-
-        CKEDITOR.replace('editor1');
   });
   
 

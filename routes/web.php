@@ -38,6 +38,18 @@
         Route::get('/product/edit/{id}', 'ProductController@edit')->name('product.edit');
         //list
         Route::get('/product', 'ProductController@index')->name('product.index');
+
+          //customer
+        //delete
+        Route::post('/customer/delete/{id}', 'CustomerController@delete')->name('customer.delete');
+        //create
+        Route::post('/customer/insert', 'CustomerController@insert')->name('customer.insert');
+        Route::get('/customer/create', 'CustomerController@create')->name('customer.create');
+        //update
+        Route::post('/customer/update', 'CustomerController@update')->name('customer.update');
+        Route::get('/customer/edit/{id}', 'CustomerController@edit')->name('customer.edit');
+        //list
+        Route::get('/customer', 'CustomerController@index')->name('customer.index');
     });
 // });
 
