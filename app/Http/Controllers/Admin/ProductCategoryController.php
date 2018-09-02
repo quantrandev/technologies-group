@@ -20,7 +20,7 @@ class ProductCategoryController extends Controller
     public function edit($id)
     {
         $editingCategory = ProductCategory::find($id);
-        $parentCategories = ProductCategory::all();
+        $parentCategories = ProductCategory::where('id', '!=', $id)->get();
 
         return view('admin.product-category.edit')->with([
             'editingCategory' => $editingCategory,
@@ -88,7 +88,8 @@ class ProductCategoryController extends Controller
         }
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         ProductCategory::destroy($id);
         
         return response()->json([

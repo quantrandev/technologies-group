@@ -82,7 +82,7 @@
                     </span>
                 </a>
             </li>
-            <li>
+            <li class="treeview">
                 <a href="#">
                     <i class="fa fa-cog"></i>
                     <span>Thông tin chung</span>
@@ -90,6 +90,10 @@
                         <span class="label label-primary pull-right">4</span>
                     </span>
                 </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route('menu.index')}}"><i class="fa fa-list-ol"></i> Quản lý menu</a></li>
+                    <li><a href="{{route('product.index')}}"><i class="fa fa-list-ol"></i> Quản lý sản phẩm</a></li>
+                </ul>
             </li>
         </ul>
     </section>

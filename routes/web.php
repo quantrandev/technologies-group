@@ -92,6 +92,18 @@
         Route::get('/subsidiary', 'SubsidiaryController@index')->name('subsidiary.index');
         //description
         Route::get('/subsidiary/description/{id}', 'SubsidiaryController@description')->name('subsidiary.detail');
+
+         //menu
+        //delete
+        Route::post('/menu/delete/{id}', 'MenuController@delete')->name('menu.delete');
+        //create
+        Route::post('/menu/insert', 'MenuController@insert')->name('menu.insert');
+        Route::get('/menu/create', 'MenuController@create')->name('menu.create');
+        //update
+        Route::post('/menu/update', 'MenuController@update')->name('menu.update');
+        Route::get('/menu/edit/{id}', 'MenuController@edit')->name('menu.edit');
+        //list
+        Route::get('/menu', 'MenuController@index')->name('menu.index');
     });
 // });
 
