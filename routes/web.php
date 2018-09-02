@@ -11,7 +11,7 @@
 |
 */
 
-// Route::group(['middleware'=>'auth'], function () {
+Route::group(['middleware'=>'auth'], function () {
     Route::namespace('Admin')->prefix('admin/')->group(function () {
         Route::get('/', 'DashboardController@index')->name('admin.dashboard');
 
@@ -104,7 +104,35 @@
         Route::get('/menu/edit/{id}', 'MenuController@edit')->name('menu.edit');
         //list
         Route::get('/menu', 'MenuController@index')->name('menu.index');
+
+        //about
+        //delete
+        Route::post('/about/delete/{id}', 'AboutController@delete')->name('about.delete');
+        //create
+        Route::post('/about/insert', 'AboutController@insert')->name('about.insert');
+        Route::get('/about/create', 'AboutController@create')->name('about.create');
+        //update
+        Route::post('/about/update', 'AboutController@update')->name('about.update');
+        Route::get('/about/edit/{id}', 'AboutController@edit')->name('about.edit');
+        //list
+        Route::get('/about', 'AboutController@index')->name('about.index');
+        //description
+        Route::get('/about/description/{id}', 'AboutController@description')->name('about.detail');
+
+        //user
+        //delete
+        Route::post('/user/delete/{id}', 'UserController@delete')->name('user.delete');
+        //create
+        Route::post('/user/insert', 'UserController@insert')->name('user.insert');
+        Route::get('/user/create', 'UserController@create')->name('user.create');
+        //update
+        Route::post('/user/update', 'UserController@update')->name('user.update');
+        Route::get('/user/edit/{id}', 'UserController@edit')->name('user.edit');
+        //list
+        Route::get('/user', 'UserController@index')->name('user.index');
+        //check email and password
+        Route::post('/user/check', 'UserController@check')->name('user.check');
     });
-// });
+});
 
 Auth::routes();

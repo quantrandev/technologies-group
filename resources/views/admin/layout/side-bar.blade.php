@@ -28,9 +28,6 @@
                 <a href="#">
                     <i class="fa fa-soccer-ball-o"></i>
                     <span>Sản phẩm - giải pháp</span>
-                    <span class="pull-right-container">
-                        <span class="label label-primary pull-right">4</span>
-                    </span>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{route('product-category.index')}}"><i class="fa fa-list-ol"></i> Quản lý danh mục</a></li>
@@ -41,60 +38,44 @@
                 <a href="{{route('customer.index')}}">
                     <i class="fa fa-user-plus"></i>
                     <span>Đối tác</span>
-                    <span class="pull-right-container">
-                        <span class="label label-primary pull-right">4</span>
-                    </span>
                 </a>
             </li>
             <li>
                 <a href="{{route('news.index')}}">
                     <i class="fa fa-newspaper-o"></i>
                     <span>Tin tức</span>
-                    <span class="pull-right-container">
-                        <span class="label label-primary pull-right">4</span>
-                    </span>
                 </a>
             </li>
             <li>
                 <a href="{{route('recruitment.index')}}">
                     <i class="fa fa-suitcase"></i>
                     <span>Tuyển dụng</span>
-                    <span class="pull-right-container">
-                        <span class="label label-primary pull-right">4</span>
-                    </span>
                 </a>
             </li>
             <li>
                 <a href="{{route('subsidiary.index')}}">
                     <i class="fa fa-building-o"></i>
                     <span>Công ty thành viên</span>
-                    <span class="pull-right-container">
-                        <span class="label label-primary pull-right">4</span>
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-user-circle-o"></i>
-                    <span>Người dùng</span>
-                    <span class="pull-right-container">
-                        <span class="label label-primary pull-right">4</span>
-                    </span>
                 </a>
             </li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-cog"></i>
                     <span>Thông tin chung</span>
-                    <span class="pull-right-container">
-                        <span class="label label-primary pull-right">4</span>
-                    </span>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{route('menu.index')}}"><i class="fa fa-list-ol"></i> Quản lý menu</a></li>
-                    <li><a href="{{route('product.index')}}"><i class="fa fa-list-ol"></i> Quản lý sản phẩm</a></li>
+                    <li><a href="{{route('about.index')}}"><i class="fa fa-list-ol"></i> Quản lý thông tin khác</a></li>
                 </ul>
             </li>
+            @if(Auth::user()->isAdmin())
+            <li>
+                <a href="{{route('user.index')}}">
+                            <i class="fa fa-user-circle-o"></i>
+                            <span>Người dùng</span>
+                        </a>
+            </li>
+            @endif
         </ul>
     </section>
     <!-- /.sidebar -->
