@@ -13,6 +13,10 @@
 
 Route::group(['middleware'=>'auth'], function () {
     Route::namespace('Admin')->prefix('admin/')->group(function () {
+        Route::get('/profile', 'ProfileController@index')->name('profile');
+        Route::post('/profile/update', 'ProfileController@update')->name('profile.update');
+        Route::post('/profile/check', 'ProfileController@check')->name('profile.check');
+
         Route::get('/', 'DashboardController@index')->name('admin.dashboard');
 
             //product category
@@ -136,3 +140,6 @@ Route::group(['middleware'=>'auth'], function () {
 });
 
 Auth::routes();
+Route::namespace('Auth')->group(function(){
+    Route::get('logout', 'LoginController@logout')->name('logout');
+});

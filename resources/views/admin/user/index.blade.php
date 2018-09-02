@@ -32,7 +32,7 @@
                     <tbody>
                         @foreach ($users as $item)
                         <tr>
-                            <td><img style="max-width: 100%;" src="{{asset($item->avatar)}}" alt=""></td>
+                            <td><img style="max-width: 100%;" src="{{Auth::user()->hasAvatar()?asset(Auth::user()->avatar):asset('storage/avatar/placeholder.png')}}" alt=""></td>
                             <td>{{$item->name}}</td>
                             <td>{{$item->email}}</td>
                             <td>
