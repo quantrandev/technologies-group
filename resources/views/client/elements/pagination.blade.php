@@ -2,9 +2,9 @@
     <ul class="pagination">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
-            <li class="disabled"><button class="genric-btn disable mr-5" disabled><i class="fa fa-arrow-circle-left"></i> Trang trước</button></li>
+            <li class="disabled"><button class="genric-btn disable mr-5" disabled><i class="fa fa-arrow-circle-left mr-5"></i> Trang trước</button></li>
         @else
-            <li><a href="{{ $paginator->previousPageUrl() }}" rel="prev" class="genric-btn primary mr-5"><i class="fa fa-arrow-circle-left"></i> Trang trước</a></li>
+            <li><a href="{{ $paginator->previousPageUrl() }}" rel="prev" class="genric-btn primary mr-5"><i class="fa fa-arrow-circle-left mr-5"></i> Trang trước</a></li>
         @endif
 
         {{-- Pagination Elements --}}
@@ -28,9 +28,9 @@
 
         {{-- Next Page Link --}}
         @if ($paginator->hasMorePages())
-            <li><a href="{{ $paginator->nextPageUrl() }}" rel="next" class="genric-btn primary ml-5">Trang sau <i class="fa fa-arrow-circle-right"></i></a></li>
+            <li><a href="{{ $paginator->nextPageUrl() }}" rel="next" class="genric-btn primary ml-5">Trang sau <i class="fa fa-arrow-circle-right ml-5"></i></a></li>
         @else
-            <li class="disabled"><button class="genric-btn disable ml-5" disabled>Trang sau <i class="fa fa-arrow-circle-right"></i></button></li>
+            <li class="disabled"><button class="genric-btn disable ml-5" disabled>Trang sau <i class="fa fa-arrow-circle-right ml-5"></i></button></li>
         @endif
     </ul>
 @endif

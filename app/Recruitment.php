@@ -16,6 +16,6 @@ class Recruitment extends Model
 'job_work_place',
 'quantity',
 'additional_information',
-'expriration',
+'expiration',
 'created_at'];
 }

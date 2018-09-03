@@ -5,14 +5,11 @@
                 <div class="col-lg-6 col-sm-6 col-4 header-top-left no-padding">
                     <ul>
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                     </ul>
                 </div>
                 <div class="col-lg-6 col-sm-6 col-8 header-top-right no-padding">
-                    <a href="tel:+953 012 3654 896">+953 012 3654 896</a>
-                    <a href="mailto:support@colorlib.com">support@colorlib.com</a>
+                    <span><strong>Trụ sở chính: </strong>{{SystemInfo::address()}}</span>
                 </div>
             </div>
         </div>
@@ -24,11 +21,11 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-has-children"><a href="">Giới thiệu</a>
+                    <li class="menu-has-children"><a href="{{route('about')}}">Giới thiệu</a>
                         <ul>
-                            <li><a href="">Giới thiệu</a></li>
-                        <li><a href="{{route('news')}}">Tin tức - sự kiện</a></li>
-                            <li><a href="">Công ty thành viên</a></li>
+                            <li><a href="{{route('about')}}">Giới thiệu</a></li>
+                            <li><a href="{{route('news')}}">Tin tức - sự kiện</a></li>
+                            <li><a href="{{route('subsidiary')}}">Công ty thành viên</a></li>
                         </ul>
                     </li>
                     <li class="menu-has-children">
@@ -49,7 +46,7 @@
                         </ul>
                     </li>
                     <li><a href="{{route('customer')}}">Đối tác</a></li>
-                    <li><a href="">Tuyển dụng</a></li>
+                    <li><a href="{{route('recruitment')}}">Tuyển dụng</a></li>
                 </ul>
             </nav>
             <!-- #nav-menu-container -->

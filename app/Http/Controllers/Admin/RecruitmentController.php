@@ -19,6 +19,7 @@ class RecruitmentController extends Controller
 
     public function insert(Request $request)
     {
+        dd($request->input());
         $recruitment = Recruitment::create([
             'title' => $request->input('title'),
             'job_title'=> $request->input('job_title'),

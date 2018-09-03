@@ -7,7 +7,7 @@
             <div class="col-md-12 pb-50 pt-50 header-text text-center">
                 <h1 class="mb-10">Sản phẩm - Giải pháp</h1>
                 <p class="subtitle">
-                    Chúng tôi cung cấp các giải pháp công nghệ với chất lượng tối ưu nhằm 
+                    Chúng tôi cung cấp các giải pháp công nghệ với chất lượng tối ưu nhằm
                 </p>
                 <p class="subtitle">thỏa mãn tối đa nhu cầu của khách hàng</p>
             </div>
@@ -19,7 +19,7 @@
                     <div class="thumb">
                         <img src="{{asset($item->cover_image)}}" alt="">
                     </div>
-                <h4><a href="{{route('product-category', $item->id)}}">{{$item->name}}</a></h4>
+                    <h4><a href="{{route('product-category', $item->id)}}">{{$item->name}}</a></h4>
                 </div>
             </div>
             @endforeach
@@ -46,8 +46,8 @@
                     <img class="img-fluid" src="{{asset($item->cover_image)}}" alt="">
                 </div>
                 <p class="meta" style="margin-top: 10px"><i class="fa fa-calendar mr-10"></i> {{date('d/m/y', strtotime($item->created_at))}}</p>
-                <a href="blog-single.html">
-                    <h5>{{strlen($item->title) > 40?mb_substr($item->title, 0, 40):$item->title}}</h5>
+                <a href="{{route('news.detail', $item->id)}}">
+                    <h5 style="font-size: 14px">{{strlen($item->title) > 100?mb_substr($item->title, 0, 99) . '...':$item->title}}</h5>
                 </a>
             </div>
             @endforeach
@@ -55,5 +55,4 @@
     </div>
 </section>
 <!-- End blog Area -->
-
 @endsection

@@ -13,6 +13,20 @@ class SystemInfo
         return About::where('name', '=', 'logo')->get()[0]->content;
     }
 
+    public static function address()
+    {
+        return About::where('name', '=', 'address')->get()[0]->content;
+    }
+
+    public static function briefInfo()
+    {
+        return About::where('name', '=', 'briefinfo')->get()[0]->content;
+    }
+
+    public static function about(){
+        return About::where('name', '=', 'introduction')->get()[0]->content;
+    }
+
     public static function menus()
     {
         return ProductCategory::where([
@@ -27,7 +41,8 @@ class SystemInfo
         }])->get();
     }
 
-    public static function customers(){
+    public static function customers()
+    {
         return Customer::all();
     }
 }

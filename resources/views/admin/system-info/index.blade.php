@@ -12,24 +12,70 @@
 @section('content-body')
 <div class="row">
     <div class="col-lg-6">
-        <div class="box">
-            <div class="box-header">
-                <h3 class="box-title">Trụ sở chính</h3>
-            </div>
-            <form role="form" action="{{route('system-info.updateAddress')}}" method="post">
-                {{ csrf_field() }}
-                <input type="hidden" name="id" value="{{$address->id}}">
-                <div class="box-body">
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="address" placeholder="Nhập trụ sở chính" value="{{$address->content}}">
+        <div class="col-lg-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Trụ sở chính</h3>
+                </div>
+                <form role="form" action="{{route('system-info.updateAddress')}}" method="post">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="id" value="{{$address->id}}">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="address" placeholder="Nhập trụ sở chính" value="{{$address->content}}">
+                        </div>
                     </div>
-                </div>
-                <!-- /.box-body -->
+                    <!-- /.box-body -->
 
-                <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Lưu</button>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Giới thiệu ngắn</h3>
                 </div>
-            </form>
+                <form role="form" action="{{route('system-info.briefInfo')}}" method="post">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="id" value="{{$briefInfo->id}}">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="briefInfo" placeholder="Nhập giới thiệu ngắn" value="{{$briefInfo->content}}">
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Giới thiệu chi tiết</h3>
+                </div>
+                <form role="form" action="{{route('system-info.introduction')}}" method="post">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="id" value="{{$introduction->id}}">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <textarea id="editor1" name="introduction" rows="10" cols="80">
+                                            {{$introduction->content}}
+                                                        </textarea>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     <div class="col-lg-6">
@@ -58,6 +104,7 @@
             </form>
         </div>
     </div>
+
 </div>
 @endsection
  @push('styles')
@@ -68,8 +115,12 @@
 <script src="{{asset('storage/admin/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('storage/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <script>
+    CKEDITOR.replace('editor1');
 
 </script>
+
+
+
 
 
 

@@ -113,6 +113,8 @@ Route::group(['middleware'=>'auth'], function () {
         Route::get('/system-info', 'SystemInfoController@index')->name('system-info');
         Route::post('/system-info/address', 'SystemInfoController@updateAddress')->name('system-info.updateAddress');
         Route::post('/system-info/logo', 'SystemInfoController@updateLogo')->name('system-info.updateLogo');
+        Route::post('/system-info/brief-info', 'SystemInfoController@briefInfo')->name('system-info.briefInfo');
+        Route::post('/system-info/introduction', 'SystemInfoController@introduction')->name('system-info.introduction');
 
         //user
         //delete
@@ -150,4 +152,18 @@ Route::namespace('Client')->group(function () {
     //news
     Route::get('tin-tuc', 'NewsController@index')->name('news');
     Route::get('tin-tuc/{id}', 'NewsController@show')->name('news.detail');
+
+    //subsidiary
+    Route::get('cong-ty-thanh-vien', 'SubsidiaryController@index')->name('subsidiary');
+
+    //recruitment
+    Route::get('tuyen-dung', 'RecruitmentController@index')->name('recruitment');
+    Route::get('tuyen-dung/{id}', 'RecruitmentController@show')->name('recruitment.detail');
+
+    //about
+    Route::get('gioi-thieu', function () {
+        return view('client.about')->with([
+            'about' => SystemInfo::about()
+        ]);
+    })->name('about');
 });

@@ -17,7 +17,6 @@
     <!-- Site Title -->
     <title>Repair</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
     <!--
         CSS
         ============================================= -->
@@ -45,12 +44,12 @@
             font-family: myFont !important;
         }
 
-        .single-service a {
-            color: #222;
+        a {
+            color: #222 !important;
         }
 
-        .single-service a:hover {
-            color: #988fff;
+        a:hover {
+            color: #988fff !important;
         }
 
         .single-blog h5 {
@@ -73,84 +72,85 @@
         .main-menu {
             padding-top: 5px;
         }
+
+        strong {
+            font-weight: 900;
+        }
+
+        .inline-container p,
+        .inline-container div {
+            display: inline-block !important;
+        }
+
+        ul.custom-list {
+            list-style-type: circle;
+        }
+        ul.custom-list li {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        ul.custom-list ul {
+            list-style-type: circle;
+            padding-left: 20px;
+        }
     </style>
 </head>
 
 <body>
     @include('client.layout.header') @yield('content')
+    <hr>
     @include('client.elements.customers')
 
     <!-- start footer Area -->
-    <footer class="footer-area section-gap">
+    <footer class="footer-area section-gap" style="background-color: #f5f5ff">
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-3  col-md-6 col-sm-6">
+                <div class="col-lg-4  col-md-6 col-sm-6">
                     <div class="single-footer-widget">
-                        <h6>About Agency</h6>
+                        <h6 style="color: #222">Tên công ty</h6>
                         <p>
-                            The world has become so fast paced that people don’t want to stand by reading a page of information, they would much rather
-                            look at a presentation and understand the message. It has come to a point
+                            {{SystemInfo::briefInfo()}}
                         </p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6 style="color: #222">Liên kết</h6>
+                        <div class="row">
+                            <div class="col">
+                                <ul>
+                                    <li><a href="#">Trang chủ</a></li>
+                                    <li><a href="#">Giới thiệu</a></li>
+                                    <li><a href="#">Tin tức - hoạt động</a></li>
+                                    <li><a href="#">Đối tác</a></li>
+                                    <li><a href="">Tuyển dụng</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="single-footer-widget">
-                        <h6>Navigation Links</h6>
+                        <h6 style="color: #222">Sản phẩm - giải pháp</h6>
                         <div class="row">
                             <div class="col">
                                 <ul>
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">Feature</a></li>
-                                    <li><a href="#">Services</a></li>
-                                    <li><a href="#">Portfolio</a></li>
-                                </ul>
-                            </div>
-                            <div class="col">
-                                <ul>
-                                    <li><a href="#">Team</a></li>
-                                    <li><a href="#">Pricing</a></li>
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">Contact</a></li>
+                                    @foreach (SystemInfo::menus()->take(5) as $item)
+                                    <li><a href="{{route('product-category', $item->id)}}">{{$item->name}}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3  col-md-6 col-sm-6">
-                    <div class="single-footer-widget">
-                        <h6>Newsletter</h6>
-                        <p>
-                            For business professionals caught between high OEM price and mediocre print and graphic output.
-                        </p>
-                        <div id="mc_embed_signup">
-                            <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                                method="get" class="subscription relative">
-                                <div class="input-group d-flex flex-row">
-                                    <input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '"
-                                        required="" type="email">
-                                    <div style="position: absolute; left: -5000px;">
-                                        <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-                                    </div>
-                                    <button class="btn bb-btn"><span class="lnr lnr-location"></span></button>
-                                </div>
-                                <div class="mt-10 info"></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3  col-md-6 col-sm-6">
+                <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="single-footer-widget mail-chimp">
-                        <h6 class="mb-20">InstaFeed</h6>
-                        <ul class="instafeed d-flex flex-wrap">
-                            <li><img src="img/i1.jpg" alt=""></li>
-                            <li><img src="img/i2.jpg" alt=""></li>
-                            <li><img src="img/i3.jpg" alt=""></li>
-                            <li><img src="img/i4.jpg" alt=""></li>
-                            <li><img src="img/i5.jpg" alt=""></li>
-                            <li><img src="img/i6.jpg" alt=""></li>
-                            <li><img src="img/i7.jpg" alt=""></li>
-                            <li><img src="img/i8.jpg" alt=""></li>
+                        <h6 class="mb-20" style="color: #222">Liên kết với chúng tôi</h6>
+                        <ul class="instafeed d-flex flex-wrap justify-content-start">
+                            <li><a href=""><i class="fa fa-facebook-square fa-3x"></i></a></li>
+                            <li><a href=""><i class="fa fa-linkedin-square fa-3x"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -165,12 +165,6 @@
                     </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i>                    by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
-                <div class="col-lg-4 col-sm-12 footer-social">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                    <a href="#"><i class="fa fa-behance"></i></a>
-                </div>
             </div>
         </div>
     </footer>
