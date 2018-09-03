@@ -16,13 +16,21 @@
             <div class="box-header">
                 <h3 class="box-title">Thông tin tin hoạt động</h3>
             </div>
-            <form role="form" action="{{route('news.update')}}" method="post">
+            <form role="form" action="{{route('news.update')}}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{$editingNews->id}}">
                 <div class="box-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Tên tin hoạt động</label>
                         <input type="text" class="form-control" name="title" placeholder="Nhập tiêu đề" value="{{$editingNews->title}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">Ảnh bìa</label>
+                        <div class="form-group">
+                            @if (!empty($editingNews->cover_image))
+                            <img src="{{asset($editingNews->cover_image)}}" style="width: 80px"> @endif
+                        </div>
+                        <input type="file" name="cover_image">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nội dung</label>
@@ -57,7 +65,10 @@
 
          CKEDITOR.replace('editor1');
     });
+
 </script>
+
+
 
 
 

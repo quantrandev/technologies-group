@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // \Illuminate\Pagination\LengthAwarePaginator::defaultView('client.elements.pagination');
     }
 
     /**

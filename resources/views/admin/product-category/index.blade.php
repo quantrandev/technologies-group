@@ -27,6 +27,7 @@
                             <th>Tên danh mục</th>
                             <th>Danh mục cha</th>
                             <th>Kích hoạt</th>
+                            <th>Hiển thị menu</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -40,6 +41,11 @@
                                 @if ($item->is_active)
                                 <span class="label label-success">Đang kích hoạt</span> @else
                                 <span class="label label-danger">Đang khóa</span> @endif
+                            </td>
+                            <td>
+                                @if ($item->is_on_menu)
+                                <span class="label label-success">Hiển thị</span> @else
+                                <span class="label label-danger">Không hiển thị</span> @endif
                             </td>
                             <td>
                                 <a href="{{route('product-category.edit', ['id'=>$item->id])}}" class="btn btn-info"><i class="fa fa-edit"></i> Sửa</a>
@@ -91,5 +97,6 @@
     });
 
 </script>
+
 
 @endpush

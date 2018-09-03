@@ -211,6 +211,7 @@ return [
 
         #
         'Flash' =>  App\Core\Facades\Flash::class,
+        'SystemInfo' =>  App\Core\Facades\SystemInfo::class,
 
     ],
 

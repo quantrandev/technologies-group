@@ -19,7 +19,7 @@ Route::group(['middleware'=>'auth'], function () {
 
         Route::get('/', 'DashboardController@index')->name('admin.dashboard');
 
-            //product category
+        //product category
         //delete
         Route::post('/product-category/delete/{id}', 'ProductCategoryController@delete')->name('product-category.delete');
         //create
@@ -31,7 +31,7 @@ Route::group(['middleware'=>'auth'], function () {
         //list
         Route::get('/product-category', 'ProductCategoryController@index')->name('product-category.index');
 
-            //product
+        //product
         //delete
         Route::post('/product/delete/{id}', 'ProductController@delete')->name('product.delete');
         //create
@@ -43,7 +43,7 @@ Route::group(['middleware'=>'auth'], function () {
         //list
         Route::get('/product', 'ProductController@index')->name('product.index');
 
-          //customer
+        //customer
         //delete
         Route::post('/customer/delete/{id}', 'CustomerController@delete')->name('customer.delete');
         //create
@@ -55,7 +55,7 @@ Route::group(['middleware'=>'auth'], function () {
         //list
         Route::get('/customer', 'CustomerController@index')->name('customer.index');
 
-         //news
+        //news
         //delete
         Route::post('/news/delete/{id}', 'NewsController@delete')->name('news.delete');
         //create
@@ -69,7 +69,7 @@ Route::group(['middleware'=>'auth'], function () {
         //content
         Route::get('/news/content/{id}', 'NewsController@content')->name('news.content');
 
-         //recruitment
+        //recruitment
         //delete
         Route::post('/recruitment/delete/{id}', 'RecruitmentController@delete')->name('recruitment.delete');
         //create
@@ -97,7 +97,7 @@ Route::group(['middleware'=>'auth'], function () {
         //description
         Route::get('/subsidiary/description/{id}', 'SubsidiaryController@description')->name('subsidiary.detail');
 
-         //menu
+        //menu
         //delete
         Route::post('/menu/delete/{id}', 'MenuController@delete')->name('menu.delete');
         //create
@@ -109,19 +109,10 @@ Route::group(['middleware'=>'auth'], function () {
         //list
         Route::get('/menu', 'MenuController@index')->name('menu.index');
 
-        //about
-        //delete
-        Route::post('/about/delete/{id}', 'AboutController@delete')->name('about.delete');
-        //create
-        Route::post('/about/insert', 'AboutController@insert')->name('about.insert');
-        Route::get('/about/create', 'AboutController@create')->name('about.create');
-        //update
-        Route::post('/about/update', 'AboutController@update')->name('about.update');
-        Route::get('/about/edit/{id}', 'AboutController@edit')->name('about.edit');
-        //list
-        Route::get('/about', 'AboutController@index')->name('about.index');
-        //description
-        Route::get('/about/description/{id}', 'AboutController@description')->name('about.detail');
+        //system info
+        Route::get('/system-info', 'SystemInfoController@index')->name('system-info');
+        Route::post('/system-info/address', 'SystemInfoController@updateAddress')->name('system-info.updateAddress');
+        Route::post('/system-info/logo', 'SystemInfoController@updateLogo')->name('system-info.updateLogo');
 
         //user
         //delete
@@ -140,6 +131,23 @@ Route::group(['middleware'=>'auth'], function () {
 });
 
 Auth::routes();
-Route::namespace('Auth')->group(function(){
+Route::namespace('Auth')->group(function () {
     Route::get('logout', 'LoginController@logout')->name('logout');
+});
+
+Route::namespace('Client')->group(function () {
+    Route::get('', 'HomeController@index')->name('home');
+
+    //product-category
+    Route::get('giai-phap/{id}', 'ProductCategoryController@show')->name('product-category');
+
+    //product
+    Route::get('san-pham/{id}', 'ProductController@show')->name('product');
+
+    //customer
+    Route::get('khach-hang', 'CustomerController@index')->name('customer');
+
+    //news
+    Route::get('tin-tuc', 'NewsController@index')->name('news');
+    Route::get('tin-tuc/{id}', 'NewsController@show')->name('news.detail');
 });

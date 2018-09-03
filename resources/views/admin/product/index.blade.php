@@ -18,7 +18,7 @@
             </div>
             <div class="box-body">
                 <div class="form-group">
-                    <a href="{{route('product.create')}}" class="btn btn-primary">Thêm danh mục</a>
+                    <a href="{{route('product.create')}}" class="btn btn-primary">Thêm sản phẩm</a>
                 </div>
                 <table id="tbl-products" class="table">
                     <thead>

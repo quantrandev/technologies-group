@@ -35,6 +35,7 @@ class ProductCategoryController extends Controller
             $editedCategory->name = $request->input('name');
             $editedCategory->parent_id = $request->input('parent_id');
             $editedCategory->is_active = $request->input('is_active');
+            $editedCategory->is_on_menu = $request->input('is_on_menu');
 
             if (!empty($request->hasFile('cover_image'))) {
                 //upload file
@@ -68,6 +69,7 @@ class ProductCategoryController extends Controller
             'name' => $request->input('name'),
             'parent_id' => $request->input('parent_id'),
             'is_active' => $request->input('is_active'),
+            'is_on_menu' => $request->input('is_on_menu'),
         ]);
 
         //upload

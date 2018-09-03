@@ -22,9 +22,16 @@ class NewsController extends Controller
         $news = News::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
-            'created_at' => date('y/m/d'),
+            'created_at' => date('y/m/d')
         ]);
 
+        //upload
+        if (!empty($request->hasFile('cover_image'))) {
+            //upload file
+            $file = $request->file('cover_image');
+            $path = 'storage/' . $file->storeAs('cover_image', $file->getClientOriginalName() . '.' . $file->extension(), 'public');
+            $news->cover_image = $path;
+        }
         try {
             $news->save();
             Flash::success('Đã thêm mới tin hoạt động');
@@ -55,6 +62,13 @@ class NewsController extends Controller
             $editedNews->title = $request->input('title');
             $editedNews->content = $request->input('content');
 
+            //upload
+            if (!empty($request->hasFile('cover_image'))) {
+                //upload file
+                $file = $request->file('cover_image');
+                $path = 'storage/' . $file->storeAs('cover_image', $file->getClientOriginalName() . '.' . $file->extension(), 'public');
+                $editedNews->cover_image = $path;
+            }
             $editedNews->save();
 
             Flash::success('Đã cập nhật tin hoạt động');
@@ -73,7 +87,8 @@ class NewsController extends Controller
         ]);
     }
 
-    public function content($id){
+    public function content($id)
+    {
         $content = News::find($id)->content;
 
         return response()->json([

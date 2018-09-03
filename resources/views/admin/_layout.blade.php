@@ -31,7 +31,11 @@
     <link rel="stylesheet" href="{{asset('storage/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}"> --}} @stack('styles')
     <!-- toastr -->
     <link rel="stylesheet" href="{{asset('storage/admin/plugins/toastr-master/build/toastr.min.css')}}">
-
+    <style>
+        img {
+            max-width: 100%;
+        }
+    </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

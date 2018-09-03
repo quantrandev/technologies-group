@@ -23,6 +23,7 @@
                 <table id="tbl-news" class="table">
                     <thead>
                         <tr>
+                            <th style="width: 60px">Ảnh bìa</th>
                             <th>Tiêu đề</th>
                             <th>Nội dung</th>
                             <th>Ngày đăng</th>
@@ -32,6 +33,7 @@
                     <tbody>
                         @foreach ($news as $item)
                         <tr>
+                            <td><img style="max-width: 100%" src="{{asset($item->cover_image)}}" alt=""></td>
                             <td>{{$item->title}}</td>
                             <td><a href="javascript:void(0)" data-id="{{$item->id}}" class="btn btn-info js-view-content">Xem nội dung</a></td>
                             <td>
@@ -52,20 +54,20 @@
 
 <div class="modal fade" id="content-modal">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Nội dung tin hoạt động</h4>
+                <h4 class="modal-title">Nội dung tin hoạt động</h4>
+            </div>
+            <div class="modal-body">
+                <div id="content-wrapper"></div>
+            </div>
         </div>
-        <div class="modal-body">
-          <div id="content-wrapper"></div>
-        </div>
-      </div>
-      <!-- /.modal-content -->
+        <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
-  </div>
+</div>
 @endsection
  @push('styles')
 <!-- DataTables -->
@@ -127,6 +129,7 @@
     });
 
 </script>
+
 
 
 

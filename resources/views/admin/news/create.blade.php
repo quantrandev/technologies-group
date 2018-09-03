@@ -16,7 +16,7 @@
             <div class="box-header">
                 <h3 class="box-title">Thông tin tin hoạt động</h3>
             </div>
-            <form role="form" action="{{route('news.insert')}}" method="post">
+            <form role="form" action="{{route('news.insert')}}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="box-body">
                     <div class="form-group">
@@ -24,10 +24,14 @@
                         <input type="text" class="form-control" name="title" placeholder="Nhập tiêu đề">
                     </div>
                     <div class="form-group">
-                            <label for="exampleInputEmail1">Nội dung</label>
-                            <textarea id="editor1" name="content" rows="0" cols="80">
+                        <label for="exampleInputFile">Ảnh bìa</label>
+                        <input type="file" name="cover_image">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nội dung</label>
+                        <textarea id="editor1" name="content" rows="0" cols="80">
                             </textarea>
-                        </div>
+                    </div>
                 </div>
                 <!-- /.box-body -->
 
@@ -55,9 +59,9 @@
 
          CKEDITOR.replace('editor1');
     });
-  
 
 </script>
+
 
 
 

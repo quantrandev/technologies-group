@@ -46,6 +46,14 @@
                                 </label>
                     </div>
                     <div class="form-group">
+                            <label>
+                                <input type="radio" name="is_on_menu" class="flat-red" {{$editingCategory->is_on_menu?'checked':''}} value="1"> Hiển thị menu
+                                    </label>
+                            <label>
+                                      <input type="radio" name="is_on_menu" class="flat-red" {{!$editingCategory->is_on_menu?'checked':''}} value="0"> Không hiển thị menu
+                                    </label>
+                        </div>
+                    <div class="form-group">
                         <label for="exampleInputFile">Ảnh bìa</label>
                         <div class="form-group">
                             @if (!empty($editingCategory->cover_image))

@@ -48,15 +48,15 @@
                     <span>Công ty thành viên</span>
                 </a>
             </li>
-            <li class="treeview">
-                <a href="#">
+            <li>
+                <a href="{{route('system-info')}}">
                     <i class="fa fa-cog"></i>
                     <span>Thông tin chung</span>
                 </a>
-                <ul class="treeview-menu">
+                {{-- <ul class="treeview-menu">
                     <li><a href="{{route('menu.index')}}"><i class="fa fa-list-ol"></i> Quản lý menu</a></li>
-                    <li><a href="{{route('about.index')}}"><i class="fa fa-list-ol"></i> Quản lý thông tin khác</a></li>
-                </ul>
+                    <li><a href="{{route('system-info')}}"><i class="fa fa-list-ol"></i> Quản lý thông tin khác</a></li>
+                </ul> --}}
             </li>
             @if(Auth::user()->isAdmin())
             <li>

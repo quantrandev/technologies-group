@@ -30,7 +30,7 @@
                         </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Danh mục</label>
-                        <select name="parent_id" class="form-control">
+                        <select name="category_id" class="form-control">
                         <option value>Chọn danh mục</option>
                             @foreach ($categories as $category)
                                 <option value="{{$category->id}}">{{$category->name}}</option>

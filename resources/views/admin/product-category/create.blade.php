@@ -41,6 +41,14 @@
                                 </label>
                     </div>
                     <div class="form-group">
+                            <label>
+                                <input type="radio" name="is_on_menu" class="flat-red" value="1" checked="checked"> Hiển thị trên menu
+                                    </label>
+                            <label>
+                                      <input type="radio" name="is_on_menu" class="flat-red" value="0"> Không hiển thị trên menu
+                                    </label>
+                        </div>
+                    <div class="form-group">
                         <label for="exampleInputFile">Ảnh bìa</label>
                         <input type="file" name="cover_image">
                     </div>
